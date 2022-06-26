@@ -1,7 +1,8 @@
-# { PROJECT NAME } 
+# Koalas
 
 ## Overview 
 
+I was pissed off with how pandas handaled data, so I think I am going to make my own
 
 
 ## Info
