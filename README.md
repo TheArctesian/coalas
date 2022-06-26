@@ -5,6 +5,9 @@
 I was pissed off with how pandas handaled data, so I think I am going to make my own
 
 
+## Thanks 
+
+Thanks to @Stelercus for the name 
 ## Info
 
 ```
