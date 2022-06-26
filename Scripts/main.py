@@ -1,3 +1,6 @@
+from sqlite3 import Timestamp
+
+
 def parse():
     print("sd")
 
@@ -34,3 +37,4 @@ if __name__ == "__main__":
                 globals()[Headers[value]].append(a[value])
 
         print(globals()[Headers[0]])
+        print(Timestamp)
