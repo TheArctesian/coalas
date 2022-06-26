@@ -12,12 +12,13 @@
 
 <strong>Name: </strong>Arctesian
 <br>
-<strong>Time: </strong>18:16-
+<strong>Time: </strong>18:16-20:39
 <br>
 <strong>Date: </strong> 25.06.22
 <br>
 <strong>Goal: </strong> Make CSV parser
 <br>
 <strong>Description: </strong>
+Finished everything but the write function, I am tired so I stopped I will throw it off it josh or if he doesn't I will do it myself later
 
 <hr>
