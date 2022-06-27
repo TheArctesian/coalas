@@ -26,12 +26,11 @@ def importData(filename):
     # with open(filename) as f: # would do it this way for reg uses but gona do it the nube way because it is easier
     f = open(filename, "r")
     ColHeaders = f.readline()
-
     TokenHeaders = tokenizeHead(ColHeaders)
-    
-    for c, l in enumerate(f):
+
+    for count, l in enumerate(f):
         pass
-    lineCount = c + 1
+    count = count + 1
 
     ra = len(TokenHeaders)
     for word in TokenHeaders:
