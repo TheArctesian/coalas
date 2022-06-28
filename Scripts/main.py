@@ -12,12 +12,6 @@ def tokenizeHead(array):
 def tokenizeValues(line):
     tempArray = line.strip().split(",")
     return tempArray
-# TODO: Figure out how this works
-def defineArrays(Header):
-    myStr = Header
-    print("The string is:",myStr)
-    myVars = locals()
-    myVars[myStr] = []
 
 def getLenHeaders():
     return len(TokenHeaders)
@@ -27,19 +21,15 @@ def importData(filename):
     f = open(filename, "r")
     ColHeaders = f.readline()
     TokenHeaders = tokenizeHead(ColHeaders)
-
-    for count, l in enumerate(f):
-        pass
-    count = count + 1
-
-    ra = len(TokenHeaders)
+    print(TokenHeaders)
     for word in TokenHeaders:
         globals()[word] = []
+        
     
     for line in f:
         a = tokenizeValues(line)
         print(a)
-        for value in range(ra):
+        for value in range(len(TokenHeaders)):
             globals()[f'{TokenHeaders}{value}'].append(a[value])
     globals().update(locals())
     f.close()
@@ -105,4 +95,4 @@ if __name__ == "__main__":
 
     print(Timestamp)
 
-    writeData("s.csv")
+    #writeData("s.csv")
