@@ -6,21 +6,26 @@ def parse():
     print("sd")
 
 def tokenizeHead(array):
-    tempArray = array.replace(" ", "").strip().split(",",)
+    tempArray = array.replace(" ", "").strip().split(",")
     return tempArray
 
 def tokenizeValues(line):
-    tempArray = line.strip().split(",")
+    tempArray = line.strip().split(",") 
+    # If CSV file is 
+    """
+    Date,Fizz,Buzz
+    04-20-2020,Monty,Python
+    """
+    # Will parse to 
     return tempArray
 
 def getLenHeaders():
     return len(TokenHeaders)
     
 def importData(filename):
-    # with open(filename) as f: # would do it this way for reg uses but gona do it the nube way because it is easier
-    f = open(filename, "r")
-    ColHeaders = f.readline()
-    TokenHeaders = tokenizeHead(ColHeaders)
+    f = open(filename, "r") # open file 
+    ColHeaders = f.readline() # Read first line 
+    TokenHeaders = tokenizeHead(ColHeaders) # Split Col See tokenize
     print(TokenHeaders)
     for word in TokenHeaders:
         globals()[word] = []
