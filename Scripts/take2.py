@@ -4,8 +4,8 @@ def importData(filename):
     f = open(filename, "r") # open file 
     
     # Parse and clean Headers
-    Headers = f.readline() # Read first line (Timestamp,Price,Trade Volume...)
-    TokenHeaders = tokenizeHead(Headers) # 'Tokenize to array['Timestamp', Price', 'TradeVolume'...]
+    Head = f.readline() # Read first line (Timestamp,Price,Trade Volume...)
+    TokenHeaders = tokenizeHead(Head) # 'Tokenize to array['Timestamp', Price', 'TradeVolume'...]
 
     # Init headers to empty arrays
     for word in TokenHeaders:
@@ -21,8 +21,8 @@ def importData(filename):
     I hope that makes sense, this is a pretty hacky way of doing it but eh 
     """
     
-    # Now we append the values of each line to the array 
-
+    # Globalized headers values
+    globals()["Headers"] = TokenHeaders
     for line in f: # Loops through remaining non header values 
         row = tokenizeLine(line) # tokenized line ['2019-06-26', '11766', '188227336', '399624', '57826748']
         for value in range(len(TokenHeaders)): 
@@ -33,7 +33,9 @@ def importData(filename):
             # And appends the values of that row to the col header name 
             # So after this runs if we print timestamp again 
                 # print(Timestamp) => ['2019-06-26', '2019-06-27', '2019-06-28', '2019-06-29', '2019-06-30', '2019-07-01', '2019-07-02', '2019-07-03']
-    f.close
+    f.close()
+
+
 
 def tokenizeHead(string):
     return string.replace(" ", "").strip().split(",")
@@ -43,3 +45,4 @@ def tokenizeLine(string):
 if __name__ == "__main__":
     importData("../Test/testData.csv")
     print(Price)
+    print(Headers)
