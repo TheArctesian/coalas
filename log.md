@@ -19,6 +19,20 @@
 <strong>Goal: </strong> Make CSV parser
 <br>
 <strong>Description: </strong>
-Finished everything but the write function, I am tired so I stopped I will throw it off it josh or if he doesn't I will do it myself later
+Finished everything but the write function, I am tired so I stopped
+
+<hr>
+
+<strong>Name: </strong>Arctesian
+<br>
+<strong>Time: </strong>12:10-14:21
+<br>
+<strong>Date: </strong> 05.07.22
+<br>
+<strong>Goal: </strong> Debug
+<br>
+<strong>Description: </strong>
+
+The previous log was a lie, I did not finish everything it was a buggy mess. I rewrote from scratch and now only have the write function left
 
 <hr>

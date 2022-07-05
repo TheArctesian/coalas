@@ -48,7 +48,7 @@ def importData(filename):
     f.close()
 
 def addRow(rowName):
-    cleanRow = rowName.strip() # cleans the row name in case ppl are stupid
+    cleanRow = rowName.strip().replace(" ","")# cleans the row name in case ppl are stupid
     globals()[cleanRow] = [] # init the name row to an empty array
     Headers.append(cleanRow) # adds the row to global headers
 
@@ -91,4 +91,5 @@ def tokenizeLine(string):
     return string.strip().split(",")
 if __name__ == "__main__":
     importData("../Test/testData.csv")
+    printHeaders()
     printSmall()
