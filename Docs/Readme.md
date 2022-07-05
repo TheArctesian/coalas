@@ -85,4 +85,18 @@ will print out
 
 ## PrintSmall
 
-The name of this function is kinda bad, if you have recommendations for a better name please go ahead and change it. This function will print out the first two roms
+The name of this function is kinda bad, if you have recommendations for a better name please go ahead and change it. This function will print out the first two rows
+
+```py
+printSmall()
+```
+
+will return
+
+```cs
+Timestamp,Price,TradeVolume,TransactionsVolume,HashRate,
+2019-06-27,12933,521683548,361050,57195337,
+2019-06-28,11133,423175771,407094,57552683,
+```
+
+If using the testData.csv, can think of it as data.head() in pandas
