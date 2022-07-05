@@ -33,6 +33,6 @@ Finished everything but the write function, I am tired so I stopped
 <br>
 <strong>Description: </strong>
 
-The previous log was a lie, I did not finish everything it was a buggy mess. I rewrote from scratch and now only have the write function left
+The previous log was a lie, I did not finish everything it was a buggy mess. I rewrote from scratch and now only have the write function left. Also wrote the docs after brain stopped working and updating the todo file
 
 <hr>

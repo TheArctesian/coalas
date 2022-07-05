@@ -55,6 +55,7 @@ def addRow(rowName):
 def removeRow(rowName):
     if rowName in Headers:
         Headers.remove(rowName)
+        globals()[rowName] = [] # this saves a bit of memory but will cause errors if someone tries to remake it later
     else: 
         raise Exception("Row Header does not exist, check if row exists of printHeaders() to see the name formatted name of the row")
     # This works fine for all purposes but the row values will still be saved in the global state so will might cause performance issues

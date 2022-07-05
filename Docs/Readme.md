@@ -47,6 +47,18 @@ newRow = []
 
 if you pass a rowName like `' Tokenized Values '` this string will be parsed into `'TokenizedValues'`. and to mutate the state of it you will need to use the new parsed value.
 
+## removeRow
+
+This function checks if the rowName is in the headers and removes it
+
+to call it pass the rowName in string format into the function
+
+```py
+removeRow('rowName')
+```
+
+The same as before please use printHeaders() to check the appropriate row name
+
 ## printHeaders
 
 This function prints the current headers or names of the arrays of each row in array format
@@ -71,4 +83,6 @@ will print out
 ['Timestamp', 'Price', 'TradeVolume', 'TransactionsVolume', 'HashRate']
 ```
 
-## removeRow
+## PrintSmall
+
+The name of this function is kinda bad, if you have recommendations for a better name please go ahead and change it. This function will print out the first two roms
