@@ -8,13 +8,15 @@
 
 ### In Progress 🚧
 
-- [ ] Write function
+- [ ] Pip packaging
+- [ ] Write Tests
 
 <hr>
 
 ### Done ✓
 
 - [x] ~~Import function~~
+- [x] ~~Write function~~
 - [x] ~~PrintSmall function~~
 - [x] ~~PrintHeaders functions~~
 - [x] ~~Add row function~~
