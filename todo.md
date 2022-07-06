@@ -10,6 +10,7 @@
 
 - [ ] Pip packaging
 - [ ] Write Tests
+- [ ] Multi File Support
 
 <hr>
 

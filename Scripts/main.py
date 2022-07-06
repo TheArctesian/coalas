@@ -1,5 +1,5 @@
 import os
-
+import re
 class col:
     HEADER = '\033[95m'
     BLUE = '\033[94m'
@@ -10,7 +10,6 @@ class col:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
-
 
 def importData(filename):
     f = open(filename, "r") # open file 
@@ -35,6 +34,7 @@ def importData(filename):
     
     # Globalized headers values (will need this for mutating state later on)
     globals()["Headers"] = TokenHeaders
+
     for line in f: # Loops through remaining non header values 
         row = tokenizeLine(line) # tokenized line ['2019-06-26', '11766', '188227336', '399624', '57826748']
         for value in range(len(TokenHeaders)): 
@@ -88,6 +88,12 @@ def rowCSV(int):
     row = row[:-1] # remove the last ',' so that the CSV doesn't have extra line
     
     return row
+
+
+def parseFileName(filename):
+   name = re.sub(".*/", "", filename)
+   name = name.replace(".csv", "")
+   return name
 
 def calLongestRow():
     largest = 0
@@ -144,5 +150,6 @@ def listUpDir():
 
 
 if __name__ == "__main__":
+    parseFileName("../Test/testData.csv")
     importData("../Test/testData.csv")
     writeCSV("s.csv")
