@@ -119,6 +119,7 @@ def printAll():
 
 def writeCSV(filename):
     # And this
+    # Have to add the \n (newline) because python
     with open(filename, "w") as file:
         file.write(HeadCSV() + '\n')
         for i in range(calLongestRow()):
