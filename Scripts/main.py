@@ -1,103 +1,136 @@
 import csv
-import string
+
+class col:
+    HEADER = '\033[95m'
+    BLUE = '\033[94m'
+    CYAN = '\033[96m'
+    PASS = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
 
 
-def parse():
-    print("sd")
-
-def tokenizeHead(array):
-    tempArray = array.replace(" ", "").strip().split(",")
-    return tempArray
-
-def tokenizeValues(line):
-    tempArray = line.strip().split(",") 
-    # If CSV file is 
-    """
-    Date,Fizz,Buzz
-    04-20-2020,Monty,Python
-    """
-    # Will parse to 
-    return tempArray
-
-def getLenHeaders():
-    return len(TokenHeaders)
-    
 def importData(filename):
     f = open(filename, "r") # open file 
-    ColHeaders = f.readline() # Read first line 
-    TokenHeaders = tokenizeHead(ColHeaders) # Split Col See tokenize
-    print(TokenHeaders)
+    
+    # Parse and clean Headers
+    Head = f.readline() # Read first line (Timestamp,Price,Trade Volume...)
+    TokenHeaders = tokenizeHead(Head) # 'Tokenize to array['Timestamp', Price', 'TradeVolume'...]
+
+    # Init headers to empty arrays
     for word in TokenHeaders:
         globals()[word] = []
-        
     
-    for line in f:
-        a = tokenizeValues(line)
-        print(a)
-        for value in range(len(TokenHeaders)):
-            globals()[f'{TokenHeaders}{value}'].append(a[value])
-    globals().update(locals())
+    # This takes a little more explanation but for a better one go here https://www.programiz.com/python-programming/methods/built-in/globals
+    """
+    the globals method returns all the global var kinda 
+    for our purposes this sets the column headers as the name of the variable 
+    or makes it so the col headers -> []
+    eg if we now
+    print(Timestamp) => []
+    I hope that makes sense, this is a pretty hacky way of doing it but eh 
+    """
+    
+    # Globalized headers values (will need this for mutating state later on)
+    globals()["Headers"] = TokenHeaders
+    for line in f: # Loops through remaining non header values 
+        row = tokenizeLine(line) # tokenized line ['2019-06-26', '11766', '188227336', '399624', '57826748']
+        for value in range(len(TokenHeaders)): 
+            globals()[TokenHeaders[value]].append(row[value]) 
+            # This line might look a bit complicated but it is really quite simple
+            # It takes our globalized var which we init to empty arrays
+                # eg Timestamp = []
+            # And appends the values of that row to the col header name 
+            # So after this runs if we print timestamp again 
+                # print(Timestamp) => ['2019-06-26', '2019-06-27', '2019-06-28', '2019-06-29', '2019-06-30', '2019-07-01', '2019-07-02', '2019-07-03']
     f.close()
 
-def addRow(row):
-    globals()[row] = []
-    TokenHeaders.append(row)
+def addRow(rowName):
+    cleanRow = rowName.strip().replace(" ","")# cleans the row name in case ppl are stupid
+    globals()[cleanRow] = [] # init the name row to an empty array
+    Headers.append(cleanRow) # adds the row to global headers
 
-def removeRow(row):
-    if row in TokenHeaders:
-        TokenHeaders.remove(row)
-    else:
-        raise Exception("Row header does not exist")
+def removeRow(rowName):
+    if rowName in Headers:
+        Headers.remove(rowName)
+        globals()[rowName] = [] # this saves a bit of memory but will cause errors if someone tries to remake it later
+    else: 
+        raise Exception("Row Header does not exist, check if row exists of printHeaders() to see the name formatted name of the row")
+    # This works fine for all purposes but the row values will still be saved in the global state so will might cause performance issues
+    # TODO: Clean row from global symbols
 
-def getRowMax():
-    max = 0
-    len = getLenHeaders()
-    for word in TokenHeaders:
-        for num in range(len):
-            tempLen = len(globals()[f'{word}{num}'])
-            if tempLen > max:
-                max = tempLen
-    return max
+def printHeaders():
+    print(f'{col.BOLD}{col.HEADER}{Headers}{col.ENDC}')
 
-def writeData(filename):
-    file = open(filename, "w")
-    writer = csv.writer(file)
-    tempTH = TokenHeaders # this is just in case people are stupid which if we site are fav man Thomas Bays they are
-    tempH = ""
-    for text in tempTH:
-        CHead = text + ","
-        tempH += CHead
-    print(tempH)
-    file.write(tempH)
-    rowMax = getRowMax()
-    print(f"rowMax = {rowMax}")
-    headCount = getLenHeaders()
-    for number in range(rowMax):
-        globals()['row%s' % number] = []
-    
-    for head in range(headCount):
-        for number in range(rowMax):
-           temp = globals()[tempTH[head]] 
-           globals()[f"row{number}"] += temp
-    
-    for row in range(rowMax):
-        with open(filename, "a") as f:
-            temp = ""
-            ",".join(globals()[f"row{row}"])
-            print(temp)
-            f.write(temp)
-    
+def HeadCSV():
+    head = "" # init empty row of headers for formatting
+    for word in Headers: 
+        h = word + ","
+        head += h
+    # Will return headers in csv form 
+        #  ['Timestamp', 'Price', 'TradeVolume', 'TransactionsVolume', 'HashRate'] => Timestamp,Price,TradeVolume,TransactionsVolume,HashRate,
+    head = head[:-1]   # remove the last ',' so that the CSV doesn't have extra line
+    return head
 
-    file.close()
-    f.close()
+def rowCSV(int):
+    row = "" # init empty string to store row
+    for word in Headers: 
+        tempArray = globals()[word] # the array of that col
+        # catch Index out of bounds error 
+        # Maybe that value dose not have a predefined value so need to replace it with empty ',' 
+        try: 
+            value = tempArray[int] + ','
+            row += value
+        except IndexError: 
+            row+=','
+    row = row[:-1] # remove the last ',' so that the CSV doesn't have extra line
     
+    return row
+
+def calLongestRow():
+    largest = 0
+    for word in Headers: 
+        tempArray = globals()[word] # the array of that col
+        length = len(tempArray) # get length 
+        if length > largest: # check if bigger 
+            largest = length
+    return largest
+
+def printSmall():
+    # This is pretty self explanatory
+    head = HeadCSV()
+    row1 = rowCSV(1)
+    row2 = rowCSV(2)
+    row3 = rowCSV(3)
+    print(f'{col.BOLD}{col.HEADER}{head}{col.ENDC}')
+    print(f'{col.BLUE}{row1}{col.ENDC}')
+    print(f'{col.BLUE}{row2}{col.ENDC}')
+    print(f'{col.BLUE}{row3}{col.ENDC}')
+
+def printAll():
+    # So is this 
+    head = HeadCSV()
+    print(f'{col.BOLD}{col.HEADER}{head}{col.ENDC}')
+    for i in range(calLongestRow()):
+        row = rowCSV(i)
+        print(f'{col.BLUE}{row}{col.ENDC}')
+
+def writeCSV(filename):
+    # And this
+    with open(filename, "w") as file:
+        file.write(HeadCSV() + '\n')
+        for i in range(calLongestRow()):
+            row = rowCSV(i)
+            file.write(row + '\n')
+
+def tokenizeHead(string):
+    return string.replace(" ", "").strip().split(",") # remove spaces and split by ,
+
+def tokenizeLine(string):
+    return string.strip().split(",") # remove extraneous spaces and split by ','
 
 if __name__ == "__main__":
     importData("../Test/testData.csv")
-    print(globals()[TokenHeaders[0]])
-
-    globals()[TokenHeaders[0]].append("This is a test value")
-
-    print(Timestamp)
-
-    #writeData("s.csv")
+    writeCSV("s.csv")
