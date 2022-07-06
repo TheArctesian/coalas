@@ -1,4 +1,4 @@
-import csv
+import os
 
 class col:
     HEADER = '\033[95m'
@@ -131,6 +131,17 @@ def tokenizeHead(string):
 
 def tokenizeLine(string):
     return string.strip().split(",") # remove extraneous spaces and split by ','
+
+def listDir():
+    entries = os.listdir('./')
+    for entry in entries:
+        print(entry)
+
+def listUpDir():
+    entries = os.listdir('../')
+    for entry in entries:
+        print(entry)
+
 
 if __name__ == "__main__":
     importData("../Test/testData.csv")
