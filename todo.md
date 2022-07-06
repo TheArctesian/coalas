@@ -1,6 +1,7 @@
 ### Todo
 
 - [ ] TSV support
+- [ ] PSV
 - [ ] Other format support
 - [ ] Global clean after rm row
 

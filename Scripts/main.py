@@ -1,5 +1,6 @@
 import os
 import re
+
 class col:
     HEADER = '\033[95m'
     BLUE = '\033[94m'
@@ -39,12 +40,15 @@ def importData(filename):
         row = tokenizeLine(line) # tokenized line ['2019-06-26', '11766', '188227336', '399624', '57826748']
         for value in range(len(TokenHeaders)): 
             globals()[TokenHeaders[value]].append(row[value]) 
-            # This line might look a bit complicated but it is really quite simple
-            # It takes our globalized var which we init to empty arrays
-                # eg Timestamp = []
-            # And appends the values of that row to the col header name 
-            # So after this runs if we print timestamp again 
-                # print(Timestamp) => ['2019-06-26', '2019-06-27', '2019-06-28', '2019-06-29', '2019-06-30', '2019-07-01', '2019-07-02', '2019-07-03']
+            """
+            This line might look a bit complicated but it is really quite simple
+            It takes our globalized var which we init to empty arrays
+                example:
+                    Timestamp = []
+            And appends the values of that row to the col header name 
+            So after this runs if we print timestamp again 
+                print(Timestamp) => ['2019-06-26', '2019-06-27', '2019-06-28', '2019-06-29', '2019-06-30', '2019-07-01', '2019-07-02', '2019-07-03']
+            """
     f.close()
 
 def addRow(rowName):
@@ -153,3 +157,4 @@ if __name__ == "__main__":
     parseFileName("../Test/testData.csv")
     importData("../Test/testData.csv")
     writeCSV("s.csv")
+

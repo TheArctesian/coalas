@@ -65,3 +65,5 @@ Cleaned up a bunch of shit, made the write function and a bunch of supporting fu
 Was about to start the release process and realised that i don't have multi import support, I was thinking about doing it with just making the headers mapped to the value of the filename but that passing that around in global states will be a bit of a pain without knowing the name before. I made a filename parser so it would be possible. It is a little late and I still have covid so should sleep but late night thoughts gave me a scare. Will still probs work on setting up the project dir for pypi before I sleep.
 
 <hr>
+
+
