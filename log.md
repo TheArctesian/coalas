@@ -51,7 +51,6 @@ Cleaned up a bunch of shit, made the write function and a bunch of supporting fu
 
 <hr>
 
-
 <strong>Name: </strong>Arctesian
 <br>
 <strong>Time: </strong>02:03-02:50
@@ -62,8 +61,35 @@ Cleaned up a bunch of shit, made the write function and a bunch of supporting fu
 <br>
 <strong>Description: </strong>
 
-Was about to start the release process and realised that i don't have multi import support, I was thinking about doing it with just making the headers mapped to the value of the filename but that passing that around in global states will be a bit of a pain without knowing the name before. I made a filename parser so it would be possible. It is a little late and I still have covid so should sleep but late night thoughts gave me a scare. Will still probs work on setting up the project dir for pypi before I sleep.
+Was about to start the release process and realized that i don't have multi import support, I was thinking about doing it with just making the headers mapped to the value of the filename but that passing that around in global states will be a bit of a pain without knowing the name before. I made a filename parser so it would be possible. It is a little late and I still have covid so should sleep but late night thoughts gave me a scare. Will still probs work on setting up the project dir for pypi before I sleep.
 
 <hr>
 
+<strong>Name: </strong>Arctesian
+<br>
+<strong>Time: </strong>19:33-18:00
+<br>
+<strong>Date: </strong> 06.07.22
+<br>
+<strong>Goal: </strong> Upload to pip
+<br>
+<strong>Description: </strong>
 
+Reconfigured the project so it matches the pypi guidlines. Getting this error when I run tho
+
+```
+ERROR: Could not find a version that satisfies the requirement re (from versions: none)
+ERROR: No matching distribution found for re
+WARNING: You are using pip version 22.0.4; however, version 22.1.2 is available.
+You should consider upgrading via the '/tmp/build-env-tqe2l5b9/bin/python -m pip install --upgrade pip' command.
+
+Traceback (most recent call last):
+```
+
+Fixed it by removing `re` in the pyproject.toml file, but this might break it, I only use regex in one function tho so should be fine.
+
+Have everything there now just need to make an account and upload.
+
+Used this [guide](https://www.youtube.com/watch?v=v4bkJef4W94)
+
+<hr>
