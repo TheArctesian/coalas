@@ -1,5 +1,8 @@
 # coalas
 
+[![PyPI Latest Release](https://img.shields.io/pypi/v/pandas.svg)](https://pypi.org/project/coalas/)
+[![License](https://img.shields.io/pypi/l/pandas.svg)](https://github.com/theArctesian/coalas/blob/main/LICENSE)
+
 ## Overview
 
 This aims to be the simplest way of handling CSV files.
