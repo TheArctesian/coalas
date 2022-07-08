@@ -1,7 +1,7 @@
 # coalas
 
-[![PyPI Latest Release](https://img.shields.io/pypi/v/pandas.svg)](https://pypi.org/project/coalas/)
-[![License](https://img.shields.io/pypi/l/pandas.svg)](https://github.com/theArctesian/coalas/blob/main/LICENSE)
+[![PyPI Latest Release](https://img.shields.io/pypi/v/coalas.svg)](https://pypi.org/project/coalas/)
+[![License](https://img.shields.io/pypi/l/coalas.svg)](https://github.com/theArctesian/coalas/blob/main/LICENSE)
 
 ## Overview
 
