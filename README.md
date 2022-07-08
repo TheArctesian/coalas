@@ -6,12 +6,26 @@ This aims to be the simplest way of handling CSV files.
 
 I was pissed off with how pandas handled data, so I think I am going to make my own. Also pandas has a data limit of 50MB which is kinda stupid I may also be using it wrong. But anyways this is limited to the ram in your computer so have fun.
 
+## Install
+
+```sh
+pip install coalas
+```
+
+## Upgrade
+
+```sh
+pip install coalas --upgrade
+```
+
 ## Use
 
 At the begging of your file import the data using the function
 
 ```py
-importData(filename)
+from coalas import coalas as c
+c.importData("filename")
+c.printAll()
 ```
 
 This will bring all the data from your CSV and init them to arrays with that are named after your headers.
