@@ -1,11 +1,11 @@
 Metadata-Version: 2.1
-Name: koalas-The-Arctesian
-Version: 0.0.1
+Name: coalas
+Version: 0.0.2
 Summary: A array based way of dealing with csv files
-Home-page: https://github.com/TheArctesian/koalas
-Author: Daniel Okita
+Home-page: https://github.com/TheArctesian/coalas
+Author: arctesian
 Author-email: me@danielokita.com
-Project-URL: Bug Tracker, https://github.com/TheArctesian/koalas/issues
+Project-URL: Bug Tracker, https://github.com/TheArctesian/coalas/issues
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
 Classifier: Natural Language :: English
@@ -13,7 +13,7 @@ Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 License-File: LICENSE
 
-# Koalas
+# coalas
 
 ## Overview
 
@@ -62,7 +62,7 @@ Please write log file in log.md when you are done and follow the format.
 
 ## Thanks
 
-Thanks to @Stelercus for the name
+Thanks to @Stelercus for the name, had to change it to `coalas` instead of `koalas` because `koalas` wass already taken
 
 ## Info
 

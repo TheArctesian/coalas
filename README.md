@@ -1,4 +1,4 @@
-# Koalas
+# coalas
 
 ## Overview
 
@@ -47,7 +47,7 @@ Please write log file in log.md when you are done and follow the format.
 
 ## Thanks
 
-Thanks to @Stelercus for the name
+Thanks to @Stelercus for the name, had to change it to `coalas` instead of `koalas` because `koalas` wass already taken
 
 ## Info
 
