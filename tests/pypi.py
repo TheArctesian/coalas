@@ -1,3 +1,3 @@
-from koalas import coalas
-coalas.importData("testData.csv")
-coalas.printSmall()
+from coalas import coalas as c
+c.importData("testData.csv")
+c.printAll()
