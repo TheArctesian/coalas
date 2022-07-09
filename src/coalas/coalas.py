@@ -56,7 +56,7 @@ def addRow(rowName):
     globals()[cleanRow] = [] # init the name row to an empty array
     Headers.append(cleanRow) # adds the row to global headers
 
-def removeRow(rowName):
+def removeCol(rowName):
     if rowName in Headers:
         Headers.remove(rowName)
         globals()[rowName] = [] # this saves a bit of memory but will cause errors if someone tries to remake it later
@@ -64,6 +64,47 @@ def removeRow(rowName):
         raise Exception("Row Header does not exist, check if row exists of printHeaders() to see the name formatted name of the row")
     # This works fine for all purposes but the row values will still be saved in the global state so will might cause performance issues
     # TODO: Clean row from global symbols
+
+def removeRow(index): 
+    for head in Headers:
+        globals()[head].pop(index-1)
+    # TODO: Test this
+
+def createCSV(cols)
+
+    globals()["Headers"] = []
+
+    for col in cols:
+        col = col.replace(" ", "") #checks for stupid people
+        globals()[col] = []
+        globals()["Headers"].append(col)
+    
+    # TODO: Test this 
+
+def mergeFile(filename)
+    with open(filename, 'r') as f:
+        Head = f.readline()
+        TokenHeaders = tokenizeHead(Head)
+        for word in TokenHeaders:
+            globals()[word] = []
+            globals()["Headers"].append(word)
+        for line in f: # Loops through remaining non header values 
+            row = tokenizeLine(line) # tokenized line ['2019-06-26', '11766', '188227336', '399624', '57826748']
+            for value in range(len(TokenHeaders)): 
+                globals()[TokenHeaders[value]].append(row[value]) 
+
+    # TODO: Test this 
+
+
+def sort(rorw, action):
+    try:  
+        if action == a: 
+            # Sort by ascending order
+            # This is not hard but brain is not working
+        if actions == d: 
+            # Sort by descending order
+    except:
+        raise Exception("Row are not integers")
 
 def printHeaders():
     print(f'{col.BOLD}{col.HEADER}{Headers}{col.ENDC}')
