@@ -66,6 +66,16 @@ Please write log file in log.md when you are done and follow the format.
 
 Thanks to @Stelercus for the name, had to change it to `coalas` instead of `koalas` because `koalas` wass already taken
 
+## Donate address 
+Eth
+```
+0xc7AfE4114E3b78cB22Ec7EbDA11AD40199a9Cb96
+```
+Cardano:
+```
+addr1q85kef4y4zx4lyxyuq3wgec3nddn53wv6nmydrc6eyx5l47jdatz0hja95dudtxclcjp8ejkthl6hl5xjfregk9lllrs8um6c0
+```
+
 ## Info
 
 ```
