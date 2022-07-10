@@ -93,3 +93,31 @@ Have everything there now just need to make an account and upload.
 Used this [guide](https://www.youtube.com/watch?v=v4bkJef4W94)
 
 <hr>
+
+<strong>Name: </strong>Arctesian
+<br>
+<strong>Time: </strong>19:33-18:00
+<br>
+<strong>Date: </strong> 08.07.22
+<br>
+<strong>Goal: </strong> Upload to pip
+<br>
+<strong>Description: </strong>
+
+Released, now working on additional features that would be nice
+<hr>
+
+
+<strong>Name: </strong>Arctesian
+<br>
+<strong>Time: </strong>19:33-18:00
+<br>
+<strong>Date: </strong> 09.07.22
+<br>
+<strong>Goal: </strong> Add features
+<br>
+<strong>Description: </strong>
+
+Added Sort function, remove Row function, mergeCSV, and some others I can't remember 
+
+<hr>

@@ -56,7 +56,7 @@ def addRow(rowName):
     globals()[cleanRow] = [] # init the name row to an empty array
     Headers.append(cleanRow) # adds the row to global headers
 
-def removeRow(rowName):
+def removeCol(rowName):
     if rowName in Headers:
         Headers.remove(rowName)
         globals()[rowName] = [] # this saves a bit of memory but will cause errors if someone tries to remake it later
@@ -64,6 +64,85 @@ def removeRow(rowName):
         raise Exception("Row Header does not exist, check if row exists of printHeaders() to see the name formatted name of the row")
     # This works fine for all purposes but the row values will still be saved in the global state so will might cause performance issues
     # TODO: Clean row from global symbols
+
+def removeRow(index): 
+    for head in Headers:
+        globals()[head].pop(index)
+
+def createCSV(cols):
+
+    globals()["Headers"] = []
+
+    for col in cols:
+        col = col.replace(" ", "") #checks for stupid people
+        globals()[col] = []
+        globals()["Headers"].append(col)
+    
+
+def mergeFile(filename):
+    with open(filename, 'r') as f:
+        Head = f.readline()
+        TokenHeaders = tokenizeHead(Head)
+        for word in TokenHeaders:
+            globals()[word] = []
+            globals()["Headers"].append(word)
+        for line in f: # Loops through remaining non header values 
+            row = tokenizeLine(line) # tokenized line ['2019-06-26', '11766', '188227336', '399624', '57826748']
+            for value in range(len(TokenHeaders)): 
+                globals()[TokenHeaders[value]].append(row[value]) 
+
+
+
+def sort(col, action):
+    try:  
+        if action == "acc": # Sort by acceding  
+            li = []
+            # sorts the array and adds the index of the sorted arrays to the array li
+            intedArray = []
+            for string in col: 
+                intedArray.append(int(string))
+
+            for index in range(len(intedArray)): 
+                li.append([intedArray[index],index])
+                li.sort()
+                sort_index = []
+            for index in li:
+                sort_index.append(index[1])
+            
+            for array in Headers:  
+                if len(globals()[array]) == len(sort_index):
+                    temp = []
+                    for index in range(len(sort_index)): 
+                        tempIndex = sort_index[index]
+                        temp.append(globals()[array][tempIndex])
+                    globals()[array] = temp
+                else: 
+                    raise Exception("Index out of range, the length or your col are not the same and so the whole file can not be sorted")
+        if action == "des": # Sort by descending order
+            li = []
+            # sorts the array and adds the index of the sorted arrays to the array li
+            intedArray = []
+            for string in col: 
+                intedArray.append(int(string))
+
+            for index in range(len(intedArray)): 
+                li.append([intedArray[index],index])
+                li.sort(reverse=True)
+                sort_index = []
+            for index in li:
+                sort_index.append(index[1])
+            
+            for array in Headers:  
+                if len(globals()[array]) == len(sort_index):
+                    temp = []
+                    for index in range(len(sort_index)): 
+                        tempIndex = sort_index[index]
+                        temp.append(globals()[array][tempIndex])
+                    globals()[array] = temp
+                else: 
+                    raise Exception("Index out of range, the length or your col are not the same and so the whole file can not be sorted")
+    except:
+        raise Exception("Col are not integers")
 
 def printHeaders():
     print(f'{col.BOLD}{col.HEADER}{Headers}{col.ENDC}')
@@ -153,8 +232,6 @@ def listUpDir():
         print(entry)
 
 
-if __name__ == "__main__":
-    parseFileName("../Test/testData.csv")
-    importData("../Test/testData.csv")
-    writeCSV("s.csv")
+#if __name__ == "__main__":
+# for my testing  
 
