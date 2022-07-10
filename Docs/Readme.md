@@ -31,20 +31,51 @@ nameofuser = 'the arctesian', 'daniel'
 action = 'sleep', 'deaded'
 ```
 
-### write to file
+### Create CSV
+
+If you don't have a csv file already you can you the create CSV function to make a new CSV
+
+To do so pass in an array of strings for you col names
+
+```py
+colNames = ["foo", "bar", "biz"]
+createCSV(colNames)
+```
+
+then adding some values to array and writing like
+
+```py
+foo.append("james")
+bar.append("lars")
+biz.append("kirk")
+writeCSV("s.csv")
+```
+
+Will output a CSV file of
+
+```cs
+foo,bar,biz
+james,lars,kirk
+```
+
+### Write to file
 
 Writes the current state of your arrays to a file
 
 Pass the file name relative to where you run the file you can get your dir but calling the function
 
 ```
+
 listDir()
+
 ```
 
 Which will print the current files in your dir
 
 ```
+
 listUpDir()
+
 ```
 
 Will list the ../ dir or the previous directory. I am writing this on arch btw so I have no clue if this will work on non unix systems. If you are running windows you deserve it anyways.
@@ -57,35 +88,72 @@ writeCSV("yourFileName.csv")
 
 ## Row manipulation
 
-### addRow
+### addCol
 
 To add a row to your CSV file pass a string of the name of your row to the addRow function
 
 ```py
-addRow(newRow)
+addCol(newRow)
 ```
 
 this will add the row to the your headers and init a new array with your row name
 
 ```py
-newRow = []
+newCol = []
 ```
 
 **Warning**
 
 if you pass a rowName like `' Tokenized Values '` this string will be parsed into `'TokenizedValues'`. and to mutate the state of it you will need to use the new parsed value.
 
-### removeRow
+### remove Col
 
-This function checks if the rowName is in the headers and removes it
+This function checks if the colName is in the headers and removes it
 
-to call it pass the rowName in string format into the function
+to call it pass the colName in string format into the function
 
 ```py
-removeRow('rowName')
+removeCol('rowName')
 ```
 
-The same as before please use printHeaders() to check the appropriate row name
+The same as before please use printHeaders() to check the appropriate col name
+
+### remove Row
+
+Quite self explanatory it removes row at index `x` with the index starting at 0 like normal arrays
+
+```
+removeRow(0)
+```
+
+### Sort
+
+This function allows you to sort the entire CSV by one row
+
+The function takes in col name and a action either `"acc"` for accenting sort or `"des"` for descending sort
+
+- Example (using testData.csv)
+
+```py
+sort(Price, 'acc')
+```
+
+=>
+
+```cs
+Timestamp,Price,TradeVolume,TransactionsVolume,HashRate
+2019-07-02,10579,171482109,373409,59910359
+2019-07-01,10738,172764922,336862,61165896
+2019-07-03,10805,240430091,397554,61131189
+```
+
+### Merge File
+
+This function merges two CSV files together and is currently the only method to work with 2 different CSV files
+
+```py
+mergeFile('path to file')
+```
 
 ### mutating rows
 

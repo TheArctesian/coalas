@@ -67,10 +67,9 @@ def removeCol(rowName):
 
 def removeRow(index): 
     for head in Headers:
-        globals()[head].pop(index-1)
-    # TODO: Test this
+        globals()[head].pop(index)
 
-def createCSV(cols)
+def createCSV(cols):
 
     globals()["Headers"] = []
 
@@ -79,9 +78,8 @@ def createCSV(cols)
         globals()[col] = []
         globals()["Headers"].append(col)
     
-    # TODO: Test this 
 
-def mergeFile(filename)
+def mergeFile(filename):
     with open(filename, 'r') as f:
         Head = f.readline()
         TokenHeaders = tokenizeHead(Head)
@@ -93,18 +91,58 @@ def mergeFile(filename)
             for value in range(len(TokenHeaders)): 
                 globals()[TokenHeaders[value]].append(row[value]) 
 
-    # TODO: Test this 
 
 
-def sort(rorw, action):
+def sort(col, action):
     try:  
-        if action == a: 
-            # Sort by ascending order
-            # This is not hard but brain is not working
-        if actions == d: 
-            # Sort by descending order
+        if action == "acc": # Sort by acceding  
+            li = []
+            # sorts the array and adds the index of the sorted arrays to the array li
+            intedArray = []
+            for string in col: 
+                intedArray.append(int(string))
+
+            for index in range(len(intedArray)): 
+                li.append([intedArray[index],index])
+                li.sort()
+                sort_index = []
+            for index in li:
+                sort_index.append(index[1])
+            
+            for array in Headers:  
+                if len(globals()[array]) == len(sort_index):
+                    temp = []
+                    for index in range(len(sort_index)): 
+                        tempIndex = sort_index[index]
+                        temp.append(globals()[array][tempIndex])
+                    globals()[array] = temp
+                else: 
+                    raise Exception("Index out of range, the length or your col are not the same and so the whole file can not be sorted")
+        if action == "des": # Sort by descending order
+            li = []
+            # sorts the array and adds the index of the sorted arrays to the array li
+            intedArray = []
+            for string in col: 
+                intedArray.append(int(string))
+
+            for index in range(len(intedArray)): 
+                li.append([intedArray[index],index])
+                li.sort(reverse=True)
+                sort_index = []
+            for index in li:
+                sort_index.append(index[1])
+            
+            for array in Headers:  
+                if len(globals()[array]) == len(sort_index):
+                    temp = []
+                    for index in range(len(sort_index)): 
+                        tempIndex = sort_index[index]
+                        temp.append(globals()[array][tempIndex])
+                    globals()[array] = temp
+                else: 
+                    raise Exception("Index out of range, the length or your col are not the same and so the whole file can not be sorted")
     except:
-        raise Exception("Row are not integers")
+        raise Exception("Col are not integers")
 
 def printHeaders():
     print(f'{col.BOLD}{col.HEADER}{Headers}{col.ENDC}')
@@ -194,8 +232,6 @@ def listUpDir():
         print(entry)
 
 
-if __name__ == "__main__":
-    parseFileName("../Test/testData.csv")
-    importData("../Test/testData.csv")
-    writeCSV("s.csv")
+#if __name__ == "__main__":
+# for my testing  
 

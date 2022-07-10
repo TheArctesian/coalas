@@ -1,7 +1,5 @@
 ### Todo
 
-- [ ] TSV support
-- [ ] PSV
 - [ ] Other format support
 - [ ] Global clean after rm row
 
@@ -10,18 +8,18 @@
 
 ### In Progress 🚧
 
-- [ ] Pip packaging
-- [ ] Write Tests
-- [ ] Multi File Support
+- [ ] Other format support
 
 ### Needs Testing 🧪
 
-- [ ] Merge CSV
 
 <hr>
 
 ### Done ✓
-
+- [x] Pip packaging
+- [x] Write Tests
+- [x] Multi File Support
+- [x] Merge CSV
 - [x] remove col
 - [x] remove row
 - [x] ~~Import function~~
