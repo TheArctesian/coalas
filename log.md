@@ -96,7 +96,7 @@ Used this [guide](https://www.youtube.com/watch?v=v4bkJef4W94)
 
 <strong>Name: </strong>Arctesian
 <br>
-<strong>Time: </strong>19:33-18:00
+<strong>Time: </strong>21:04-22:01
 <br>
 <strong>Date: </strong> 08.07.22
 <br>
@@ -110,7 +110,7 @@ Released, now working on additional features that would be nice
 
 <strong>Name: </strong>Arctesian
 <br>
-<strong>Time: </strong>19:33-18:00
+<strong>Time: </strong>17:01-18:30
 <br>
 <strong>Date: </strong> 09.07.22
 <br>
