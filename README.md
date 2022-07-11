@@ -56,11 +56,9 @@ For more info please check the docs folder
 
 ## Contributing
 
-If anyone would like to contribute take a look at the todo.md for this needed.
+Thank you for wanting to contribute, please look at the todo file for task that remain unfinished, or audit the code. In general use your rational judgment, don't submit anything malicious or project breaking, I or any maintainers will check. Don't be afraid to do anything radical or delete large swaths of code, take risks and innovate.
 
-Comments are always necessary, ik I might have overdone the comments but it is a better problem to have then no comments.
-
-Please write log file in log.md when you are done and follow the format.
+The only requirement I will set is that you write a log of your work in the `log.md` file. Follow the format. This **must be done** before and after every session. While this might seem tedious and monotonous, it allows me other to acknowledge the effort you have put it to helping the open source community. It as also fun to go back read anecdotes and relive the pain or jubilation the past.
 
 ## Thanks
 
