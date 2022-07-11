@@ -19,6 +19,7 @@
 <strong>Goal: </strong> Make CSV parser
 <br>
 <strong>Description: </strong>
+
 Finished everything but the write function, I am tired so I stopped
 
 <hr>
