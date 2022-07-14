@@ -36,23 +36,22 @@ This will bring all the data from your CSV and init them to arrays with that are
 Example:
 If I have a csv file like this:
 
-```csv
-timestamp,name of user,action,
-20-04-2020,the arctesian,sleep,
-20-04-2069,daniel,deaded,
+```
+foo,bar,biz
+james,lars,kirk
+john,paul,george #sorry ringo
+gilmour,barret,waters
 ```
 
-after importing the data you will get 3 arrays of
+after importing the data you will get the arrays:
 
 ```py
-timestamp = '20-04-2020', '20-04-69'
-nameofuser = 'the arctesian', 'daniel'
-action = 'sleep', 'deaded'
+foo = ['james', 'john', 'gilmour']
+bar = ['lars', 'paul', 'barret']
+biz = ['kirk', 'george', 'waters']
 ```
 
-You can the mutate the state of the arrays with normal python functionality
-
-For more info please check the docs folder or the wiki page
+You can the mutate the state of the arrays with normal python functionality or for more CSV specific functions use the function detailed in the wiki page
 
 ## Contributing
 
