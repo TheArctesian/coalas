@@ -90,13 +90,13 @@ writeCSV("yourFileName.csv")
 
 ### addCol
 
-To add a row to your CSV file pass a string of the name of your row to the addRow function
+To add a col to your CSV file pass a string of the name of your col to the addRow function
 
 ```py
-addCol(newRow)
+addCol('newRow')
 ```
 
-this will add the row to the your headers and init a new array with your row name
+this will add the col to the your headers and init a new array with your col name
 
 ```py
 newCol = []
@@ -241,6 +241,59 @@ Just use
 printAll()
 ```
 
+### RowCSV
+
+This function formats a row into and returns a string with the row in CSV format
+
+If we had a CSV file of:
+
+```
+foo,bar,biz
+james,lars,kirk
+john,paul,george #sorry ringo
+gilmour,barret,waters
+```
+
+Using the import functions they would be formatted to
+
+```py
+foo = ['james', 'john', 'gilmour']
+bar = ['lars', 'paul', 'barret']
+biz = ['kirk', 'george', 'waters']
+```
+
+Now say we wanted the CSV line of the metalica members
+
+```py
+metalica = rowCSV(0)
+print(metalica)
+```
+
+Would give us
+
+```
+james,lars,kirk
+```
+
+As output, don't know if you want to use this at all but it's there
+
+### HeadCSV
+
+Like the function above this just returns the headers
+
+Using the `testData.csv` file:
+
+```py
+head = headCSV()
+print(head)
+```
+
+would return
+
+```
+Timestamp,Price,Trade Volume,Transactions Volume,Hash Rate
+```
+
 ## Other functions
 
 Other functions that are more specific to the dev but might be useful
@@ -252,7 +305,9 @@ the function `calLongestRow()` as the name suggests returns the length of the lo
 can print it with
 
 ```
+
 print(calLongestRow())
+
 ```
 
 ### Tokenization
@@ -260,7 +315,9 @@ print(calLongestRow())
 Tokenization of a CSV string like
 
 ```
+
 foo,bar,fizz,buzz
+
 ```
 
 Into

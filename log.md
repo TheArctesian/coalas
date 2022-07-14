@@ -103,11 +103,13 @@ Used this [guide](https://www.youtube.com/watch?v=v4bkJef4W94)
 <br>
 <strong>Goal: </strong> Upload to pip
 <br>
+<strong>Version: </strong> 0.0.1, 0.0.2
+<br>
 <strong>Description: </strong>
 
 Released, now working on additional features that would be nice
-<hr>
 
+<hr>
 
 <strong>Name: </strong>Arctesian
 <br>
@@ -117,8 +119,26 @@ Released, now working on additional features that would be nice
 <br>
 <strong>Goal: </strong> Add features
 <br>
+<strong>Version: </strong> 0.0.3, 0.0.4
+<br>
 <strong>Description: </strong>
 
-Added Sort function, remove Row function, mergeCSV, and some others I can't remember 
+Added Sort function, remove Row function, mergeCSV, and some others I can't remember
+
+<hr>
+
+<strong>Name: </strong>Arctesian
+<br>
+<strong>Time: </strong>14:31-14:55
+<br>
+<strong>Date: </strong> 14.07.22
+<br>
+<strong>Goal: </strong> Clean docs and drop() function
+<br>
+<strong>Version: </strong> 0.0.5
+<br>
+<strong>Description: </strong>
+
+Added drop function for the remove col function as well as change the row col mishaps, also going to add github wiki
 
 <hr>

@@ -1,8 +1,6 @@
 ### Todo
 
 - [ ] Other format support
-- [ ] Global clean after rm row
-
 
 <hr>
 
@@ -12,10 +10,11 @@
 
 ### Needs Testing 🧪
 
-
 <hr>
 
 ### Done ✓
+
+- [x] Global clean after rm col
 - [x] Pip packaging
 - [x] Write Tests
 - [x] Multi File Support
