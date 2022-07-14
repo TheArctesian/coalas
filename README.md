@@ -52,7 +52,7 @@ action = 'sleep', 'deaded'
 
 You can the mutate the state of the arrays with normal python functionality
 
-For more info please check the docs folder
+For more info please check the docs folder or the wiki page
 
 ## Contributing
 
