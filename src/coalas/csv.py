@@ -1,5 +1,6 @@
 import os
 import re
+import csv
 
 class col:
     HEADER = '\033[95m'
@@ -35,33 +36,40 @@ def importData(filename):
     
     # Globalized headers values (will need this for mutating state later on)
     globals()["Headers"] = TokenHeaders
+    with open('news.csv', 'r') as p:
+        reader = csv.reader(p)
+        for row in reader:
+            for value in range(len(TokenHeaders)): 
+                globals()[TokenHeaders[value]].append(row[value]) 
+                """
+                This line might look a bit complicated but it is really quite simple
+                It takes our globalized var which we init to empty arrays
+                    example:
+                        Timestamp = []
+                And appends the values of that row to the col header name 
+                So after this runs if we print timestamp again 
+                    print(Timestamp) => ['2019-06-26', '2019-06-27', '2019-06-28', '2019-06-29', '2019-06-30', '2019-07-01', '2019-07-02', '2019-07-03']
+                """
+        f.close()
+        p.close()
+    for value in range(len(TokenHeaders)): 
+        globals()[TokenHeaders[value]].pop(0)
+        
 
-    for line in f: # Loops through remaining non header values 
-        row = tokenizeLine(line) # tokenized line ['2019-06-26', '11766', '188227336', '399624', '57826748']
-        for value in range(len(TokenHeaders)): 
-            globals()[TokenHeaders[value]].append(row[value]) 
-            """
-            This line might look a bit complicated but it is really quite simple
-            It takes our globalized var which we init to empty arrays
-                example:
-                    Timestamp = []
-            And appends the values of that row to the col header name 
-            So after this runs if we print timestamp again 
-                print(Timestamp) => ['2019-06-26', '2019-06-27', '2019-06-28', '2019-06-29', '2019-06-30', '2019-07-01', '2019-07-02', '2019-07-03']
-            """
-    f.close()
 
-def addCol(colName):
-    cleanRow = colName.strip().replace(" ","")# cleans the col name in case ppl are stupid
-    globals()[cleanRow] = [] # init the name col to an empty array
-    Headers.append(cleanRow) # adds the col to global headers
+def addRow(rowName):
+    cleanRow = rowName.strip().replace(" ","")# cleans the row name in case ppl are stupid
+    globals()[cleanRow] = [] # init the name row to an empty array
+    Headers.append(cleanRow) # adds the row to global headers
 
-def removeCol(colName):
-    if colName in Headers:
-        Headers.remove(colName)
-        del globals()[colName] # memset(globals()[colname], 0, MEMORY_BLOCK); if we were to do it in C 
+def removeCol(rowName):
+    if rowName in Headers:
+        Headers.remove(rowName)
+        globals()[rowName] = [] # this saves a bit of memory but will cause errors if someone tries to remake it later
     else: 
-        raise Exception("Row Header does not exist, check if col exists of printHeaders() to see the name formatted name of the col")
+        raise Exception("Row Header does not exist, check if row exists of printHeaders() to see the name formatted name of the row")
+    # This works fine for all purposes but the row values will still be saved in the global state so will might cause performance issues
+    # TODO: Clean row from global symbols
 
 def removeRow(index): 
     for head in Headers:
@@ -85,9 +93,9 @@ def mergeFile(filename):
             globals()[word] = []
             globals()["Headers"].append(word)
         for line in f: # Loops through remaining non header values 
-            col = tokenizeLine(line) # tokenized line ['2019-06-26', '11766', '188227336', '399624', '57826748']
+            row = tokenizeLine(line) # tokenized line ['2019-06-26', '11766', '188227336', '399624', '57826748']
             for value in range(len(TokenHeaders)): 
-                globals()[TokenHeaders[value]].append(col[value]) 
+                globals()[TokenHeaders[value]].append(row[value]) 
 
 
 
@@ -146,7 +154,7 @@ def printHeaders():
     print(f'{col.BOLD}{col.HEADER}{Headers}{col.ENDC}')
 
 def HeadCSV():
-    head = "" # init empty col of headers for formatting
+    head = "" # init empty row of headers for formatting
     for word in Headers: 
         h = word + ","
         head += h
@@ -200,7 +208,7 @@ def printAll():
     # So is this 
     head = HeadCSV()
     print(f'{col.BOLD}{col.HEADER}{head}{col.ENDC}')
-    for i in range(calLongestRow()):
+    for i in range(calLongestCol()):
         row = rowCSV(i)
         print(f'{col.BLUE}{row}{col.ENDC}')
 
@@ -209,15 +217,12 @@ def writeCSV(filename):
     # Have to add the \n (newline) because python
     with open(filename, "w") as file:
         file.write(HeadCSV() + '\n')
-        for i in range(calLongestRow()):
+        for i in range(calLongestCol()):
             row = rowCSV(i)
             file.write(row + '\n')
 
 def tokenizeHead(string):
     return string.replace(" ", "").strip().split(",") # remove spaces and split by ,
-
-def tokenizeLine(string):
-    return string.strip().split(",") # remove extraneous spaces and split by ','
 
 def listDir():
     entries = os.listdir('./')
@@ -231,8 +236,7 @@ def listUpDir():
 
 
 if __name__ == "__main__":
-    importData("../../tests/testData.csv")
+    importData('news.csv')
+    sort(Trained,'des')
     printSmall()
-    removeCol("Price")
-    printSmall()
-
+    writeCSV('p.csv')

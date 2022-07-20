@@ -3,7 +3,7 @@ README.md
 pyproject.toml
 setup.cfg
 src/coalas/__init__.py
-src/coalas/coalas.py
+src/coalas/csv.py
 src/coalas.egg-info/PKG-INFO
 src/coalas.egg-info/SOURCES.txt
 src/coalas.egg-info/dependency_links.txt

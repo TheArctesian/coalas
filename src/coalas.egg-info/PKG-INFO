@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: coalas
-Version: 0.0.5
+Version: 0.0.6
 Summary: A array based way of dealing with csv files
 Home-page: https://github.com/TheArctesian/coalas
 Author: arctesian
@@ -16,7 +16,7 @@ License-File: LICENSE
 # coalas
 
 [![PyPI Latest Release](https://img.shields.io/pypi/v/coalas.svg)](https://pypi.org/project/coalas/)
-[![License](https://img.shields.io/pypi/l/coalas.svg)](https://github.com/theArctesian/coalas/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/thearctesian/coalas)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 ## Overview
 
@@ -51,23 +51,22 @@ This will bring all the data from your CSV and init them to arrays with that are
 Example:
 If I have a csv file like this:
 
-```csv
-timestamp,name of user,action,
-20-04-2020,the arctesian,sleep,
-20-04-2069,daniel,deaded,
+```
+foo,bar,biz
+james,lars,kirk
+john,paul,george #sorry ringo
+gilmour,barret,waters
 ```
 
-after importing the data you will get 3 arrays of
+after importing the data you will get the arrays:
 
 ```py
-timestamp = '20-04-2020', '20-04-69'
-nameofuser = 'the arctesian', 'daniel'
-action = 'sleep', 'deaded'
+foo = ['james', 'john', 'gilmour']
+bar = ['lars', 'paul', 'barret']
+biz = ['kirk', 'george', 'waters']
 ```
 
-You can the mutate the state of the arrays with normal python functionality
-
-For more info please check the docs folder
+You can the mutate the state of the arrays with normal python functionality or for more CSV specific functions use the function detailed in the wiki page
 
 ## Contributing
 
@@ -79,15 +78,10 @@ The only requirement I will set is that you write a log of your work in the `log
 
 Thanks to @Stelercus for the name, had to change it to `coalas` instead of `koalas` because `koalas` wass already taken
 
-## Donate address 
-Eth
-```
-0xc7AfE4114E3b78cB22Ec7EbDA11AD40199a9Cb96
-```
-Cardano:
-```
-addr1q85kef4y4zx4lyxyuq3wgec3nddn53wv6nmydrc6eyx5l47jdatz0hja95dudtxclcjp8ejkthl6hl5xjfregk9lllrs8um6c0
-```
+## Donate 
+Eth: `0xc7AfE4114E3b78cB22Ec7EbDA11AD40199a9Cb96`
+
+Cardano: `addr1q85kef4y4zx4lyxyuq3wgec3nddn53wv6nmydrc6eyx5l47jdatz0hja95dudtxclcjp8ejkthl6hl5xjfregk9lllrs8um6c0`
 
 ## Info
 

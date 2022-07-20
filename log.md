@@ -142,3 +142,19 @@ Added Sort function, remove Row function, mergeCSV, and some others I can't reme
 Added drop function for the remove col function as well as change the row col mishaps, also going to add github wiki
 
 <hr>
+
+<strong>Name: </strong>Arctesian
+<br>
+<strong>Time: </strong> too long
+<br>
+<strong>Date: </strong> 20.07.22
+<br>
+<strong>Goal: </strong> Reworked CSV parsing
+<br>
+<strong>Version: </strong> 0.0.6
+<br>
+<strong>Description: </strong>
+
+This was so much pain and regex and asking for help and remembering nothing worked and I am not very good. I ended up just working in the normal python CSV parser which I guess makes this package futile but I don't care I am still going to use this so much pain
+
+<hr>
