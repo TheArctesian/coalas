@@ -151,7 +151,7 @@ Added drop function for the remove col function as well as change the row col mi
 <br>
 <strong>Goal: </strong> Reworked CSV parsing
 <br>
-<strong>Version: </strong> 0.0.6
+<strong>Version: </strong> 0.0.6 & 0.0.7
 <br>
 <strong>Description: </strong>
 

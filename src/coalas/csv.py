@@ -36,7 +36,7 @@ def importData(filename):
     
     # Globalized headers values (will need this for mutating state later on)
     globals()["Headers"] = TokenHeaders
-    with open('news.csv', 'r') as p:
+    with open(filename, 'r') as p:
         reader = csv.reader(p)
         for row in reader:
             for value in range(len(TokenHeaders)): 
