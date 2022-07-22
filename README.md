@@ -26,7 +26,7 @@ pip install coalas --upgrade
 At the begging of your file import the data using the function
 
 ```py
-from coalas import coalas as c
+from coalas import csvReader as c
 c.importData("filename")
 c.printAll()
 ```

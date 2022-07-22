@@ -1,6 +1,10 @@
 ### Todo
 
 - [ ] Other format support
+- [ ] Rainbow output for all print functions
+- [ ] Fix merge file function
+- [ ] Col switching function
+- [ ] Null Checking for empty row on import (cause index out of bounds error if row is empty)
 
 <hr>
 

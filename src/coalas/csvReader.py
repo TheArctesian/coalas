@@ -57,7 +57,7 @@ def importData(filename):
         
 
 
-def addRow(rowName):
+def addCol(rowName):
     cleanRow = rowName.strip().replace(" ","")# cleans the row name in case ppl are stupid
     globals()[cleanRow] = [] # init the name row to an empty array
     Headers.append(cleanRow) # adds the row to global headers
@@ -101,7 +101,7 @@ def mergeFile(filename):
 
 def sort(col, action):
     try:  
-        if action == "acc": # Sort by acceding  
+        if action == "acc": # Sort by acceding  1,2,3
             li = []
             # sorts the array and adds the index of the sorted arrays to the array li
             intedArray = []
@@ -124,7 +124,7 @@ def sort(col, action):
                     globals()[array] = temp
                 else: 
                     raise Exception("Index out of range, the length or your col are not the same and so the whole file can not be sorted")
-        if action == "des": # Sort by descending order
+        if action == "des": # Sort by descending order 3,2,1
             li = []
             # sorts the array and adds the index of the sorted arrays to the array li
             intedArray = []
@@ -163,7 +163,7 @@ def HeadCSV():
     head = head[:-1]   # remove the last ',' so that the CSV doesn't have extra line
     return head
 
-def rowCSV(int):
+def rowCSVString(int):
     row = "" # init empty string to store row
     for word in Headers: 
         tempArray = globals()[word] # the array of that col
@@ -178,7 +178,19 @@ def rowCSV(int):
     
     return row
 
-
+def rowCSV(int):
+    row = []
+    for word in Headers: 
+        tempArray = globals()[word] # the array of that col
+        # catch Index out of bounds error 
+        # Maybe that value dose not have a predefined value so need to replace it with empty ',' 
+        try: 
+            value = tempArray[int]         
+            row.append(value)
+        except IndexError:
+            row.append("") 
+            print(f"{col.WARNING}Cell is empty replacing with ''{col.ENDC}")
+    return row
 def parseFileName(filename):
    name = re.sub(".*/", "", filename)
    name = name.replace(".csv", "")
@@ -196,9 +208,9 @@ def calLongestCol():
 def printSmall():
     # This is pretty self explanatory
     head = HeadCSV()
-    row1 = rowCSV(1)
-    row2 = rowCSV(2)
-    row3 = rowCSV(3)
+    row1 = rowCSVString(1)
+    row2 = rowCSVString(2)
+    row3 = rowCSVString(3)
     print(f'{col.BOLD}{col.HEADER}{head}{col.ENDC}')
     print(f'{col.BLUE}{row1}{col.ENDC}')
     print(f'{col.BLUE}{row2}{col.ENDC}')
@@ -209,18 +221,19 @@ def printAll():
     head = HeadCSV()
     print(f'{col.BOLD}{col.HEADER}{head}{col.ENDC}')
     for i in range(calLongestCol()):
-        row = rowCSV(i)
+        row = rowCSVString(i)
         print(f'{col.BLUE}{row}{col.ENDC}')
 
 def writeCSV(filename):
     # And this
     # Have to add the \n (newline) because python
     with open(filename, "w") as file:
-        file.write(HeadCSV() + '\n')
+        csvwriter = csv.writer(file) 
+        csvwriter.writerow(Headers) 
         for i in range(calLongestCol()):
-            row = rowCSV(i)
-            file.write(row + '\n')
-
+           row = rowCSV(i)
+           csvwriter.writerow(row)
+    
 def tokenizeHead(string):
     return string.replace(" ", "").strip().split(",") # remove spaces and split by ,
 
@@ -236,7 +249,7 @@ def listUpDir():
 
 
 if __name__ == "__main__":
-    importData('news.csv')
-    sort(Trained,'des')
-    printSmall()
+    importData('t.csv')
+    printHeaders()
+    sort(number,'acc')
     writeCSV('p.csv')

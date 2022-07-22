@@ -158,3 +158,18 @@ Added drop function for the remove col function as well as change the row col mi
 This was so much pain and regex and asking for help and remembering nothing worked and I am not very good. I ended up just working in the normal python CSV parser which I guess makes this package futile but I don't care I am still going to use this so much pain
 
 <hr>
+
+<strong>Name: </strong>Arctesian
+<br>
+<strong>Time: </strong> 1hr ish forgot to log time
+<br>
+<strong>Date: </strong> 21.07.22
+<br>
+<strong>Goal: </strong> Reworked Write function and add Col functions
+<br>
+<strong>Version: </strong> 0.0.8
+<br>
+<strong>Description: </strong>
+
+The merge function doest work but migrated most of the core functions over to using the csv lib
+<hr>
