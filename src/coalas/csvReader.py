@@ -13,7 +13,7 @@ class col:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-def importData(filename):
+def importCSV(filename):
     f = open(filename, "r") # open file 
     
     # Parse and clean Headers

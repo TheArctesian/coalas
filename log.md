@@ -173,3 +173,18 @@ This was so much pain and regex and asking for help and remembering nothing work
 
 The merge function doest work but migrated most of the core functions over to using the csv lib
 <hr>
+
+<strong>Name: </strong>Arctesian
+<br>
+<strong>Time: </strong> 17:30-17:36
+<br>
+<strong>Date: </strong> 22.07.22
+<br>
+<strong>Goal: </strong> Reworked Write function and add Col functions
+<br>
+<strong>Version: </strong> 0.0.9
+<br>
+<strong>Description: </strong>
+
+Change importData to importCSV
+<hr>
