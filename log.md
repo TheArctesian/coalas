@@ -188,6 +188,7 @@ The merge function doest work but migrated most of the core functions over to us
 
 Change importData to importCSV
 <hr>
+
 <strong>Name: </strong>Arctesian
 <br>
 <strong>Time: </strong> 17:30-17:36
@@ -201,4 +202,19 @@ Change importData to importCSV
 <strong>Description: </strong>
 <hr>
 Starting to rework everything into dictionaries so that multiple files can be imported, will make this a sep pkg
+<hr>
+
+<strong>Name: </strong>Arctesian
+<br>
+<strong>Time: </strong> 17:48-18:56
+<br>
+<strong>Date: </strong> 10.08.22
+<br>
+<strong>Goal: </strong> Rewrite #3
+<br>
+<strong>Version: </strong> 0.1.0
+<br>
+<strong>Description: </strong>
+<hr>
+Pretty much all the ground work is there, need to put in the sorting function and do some more tests
 <hr>

@@ -1,6 +1,8 @@
 import os
 import re
 import csv
+import sys
+
 
 class color:
     RED = '\033[91m'
@@ -29,22 +31,94 @@ class col:
 
 
 def tokenizeFirstLine(line):
+    return line.replace(" ", "").strip().split(",") 
 
-    return line.replace(" ", "").strip().split(",") # remove spaces and split by ,
-
+def rmFileEnd(filename):
+    return filename.replace(".csv", "")
 def importCSV(filename):
-    dictName = filename.replace(".csv", "")
+    dictName = rmFileEnd(filename)
     globals()[dictName] = {}
     with open(filename, 'r') as f:
         reader = csv.reader(f)
         Columns = tokenizeFirstLine(f.readline())
-
-        print(Columns)
+        for i in Columns: 
+            globals()[dictName][i] = []
         try:
             for row in reader:
-             print(row)
+                for i in range(len(Columns)):
+                    globals()[dictName][Columns[i]].append(row[i])
         except csv.Error as e:
             sys.exit('file {}, line {}: {}'.format(filename, reader.line_num, e))         
-        
+
+def fmtColsforPrint(string):
+    return f'{col.BOL}{col.UND}{col.P}{string}{col.END}'
+
+def fmtRowsforPrint(string):
+    return f'{col.C}{string}{col.END}'
+
+def colNames(file):
+    cols = [] 
+    for i in file:
+        cols.append(i)
+    return cols
+
+def splitArtoCSV(arr):
+    temp = ""
+    for i in arr:
+        temp += f"{i},"
+    temp = temp[:-1]
+    return temp
+def pcolNames(file):
+    cols = splitArtoCSV(colNames(file))
+    print(fmtColsforPrint(cols))
+
+def longestCol(file):
+    leng = 0
+    for i in file.values():
+        tlen = len(i)
+        if tlen >= leng:
+            leng = tlen
+    return leng
+
+def shortestCol(file):
+    leng = longestCol(file)
+    for i in file.values():
+        tlen = len(i)
+        if tlen <= leng:
+            leng = tlen
+    return leng
+
+def rowCSV(file, number):
+    row = []
+    try: 
+        for i in file.values():
+            row.append(i[number])
+    except IndexError: 
+        row.append("")
+
+    return row
+
+def phead(file):
+    pcolNames(file) 
+    leng = shortestCol(file)
+    if leng >= 5: 
+        leng = 5
+    for i in range(leng): 
+        row = rowCSV(file, i)
+        row = splitArtoCSV(row)
+        print(fmtRowsforPrint(row))
+
+def writeCSV(file, filename): 
+    with open(filename, 'w') as f:  
+        csvwriter = csv.writer(f)
+        csvwriter.writerow(colNames(file))
+        for i in range(longestCol(file)):
+            row = rowCSV(file, i)            
+            csvwriter.writerow(row)
+
+
 if __name__ == "__main__":
-    importCSV('t.csv')
+    file = 't.csv'
+    importCSV(file)
+    phead(t)
+    writeCSV(t, 'x.csv')
